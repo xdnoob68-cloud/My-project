@@ -1,0 +1,103 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyNqPO9VEVIcJ9VwiDfRamGD",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/xdnoob68-cloud/My-project/blob/main/Guess%20the%20number\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "YIMgpsSvjnKy",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "outputId": "f62f0c48-e1d9-4923-c084-c71c95987e01"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "ทายเลขระหว่าง 1-100 มีโอกาสทั้งหมด 7 ครั้ง\n",
+            "=== เกมทายเลข ===\n",
+            "ทายเลข: 55\n",
+            "น้อยไป\n",
+            "เหลือโอกาศอีก 6 ครั้ง\n",
+            "ทายเลข: 80\n",
+            "มากไป\n",
+            "เหลือโอกาศอีก 5 ครั้ง\n",
+            "ทายเลข: 70\n",
+            "มากไป\n",
+            "เหลือโอกาศอีก 4 ครั้ง\n",
+            "ทายเลข: 60\n",
+            "ถูกต้อง!\n",
+            "ใช้ไป 4 ครั้ง เก่งมากกกก\n"
+          ]
+        }
+      ],
+      "source": [
+        "\"\"\"\n",
+        "เกมทายเลข (\n",
+        " - สุ่มเลข 1-100 ไว้ในใจ\n",
+        " - ผู้ใช้ทายที่ล่ะครั้ง โแรแกรมจะบอกว่าน้อยหรือมากไป\n",
+        " - ทายถูกก่อน (7 ครั้ง) ถือว่าชนะ\n",
+        "\"\"\"\n",
+        "import random\n",
+        "\n",
+        "\n",
+        "secret_number = random.randint (1,100)\n",
+        "\n",
+        "attempts = 0\n",
+        "max_attempts = 7\n",
+        "guessed_correctly = False\n",
+        "\n",
+        "print(f\"ทายเลขระหว่าง 1-100 มีโอกาสทั้งหมด {max_attempts} ครั้ง\")\n",
+        "print(\"=== เกมทายเลข ===\")\n",
+        "\n",
+        "while attempts < max_attempts and not guessed_correctly:\n",
+        "    guess = int(input(\"ทายเลข: \"))\n",
+        "    attempts += 1\n",
+        "\n",
+        "    if guess == secret_number:\n",
+        "        guessed_correctly = True\n",
+        "        print(\"ถูกต้อง!\")\n",
+        "    elif guess < secret_number:\n",
+        "        print(\"น้อยไป\")\n",
+        "    else:\n",
+        "        print(\"มากไป\")\n",
+        "\n",
+        "    if not guessed_correctly and attempts < max_attempts:\n",
+        "       remaining = max_attempts - attempts\n",
+        "       print(f\"เหลือโอกาศอีก {remaining} ครั้ง\")\n",
+        "\n",
+        "if guessed_correctly:\n",
+        "    print(f\"ใช้ไป {remaining} ครั้ง เก่งมากกกก\")\n",
+        "else:\n",
+        "    print(f\"หมดโอกาศแล้วน่ะ เลขที่ถูกต้องคือ{secret_number}\")"
+      ]
+    }
+  ]
+}
